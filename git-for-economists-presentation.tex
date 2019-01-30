@@ -1,0 +1,133 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\title[Git for Economists]{Git and GitHub: A Guide for Economists}
+\author{Frank Pinter}
+\date{Spring 2019}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section*{Introduction}
+
+\begin{frame}{Introduction}
+\end{frame}
+
+\section{The importance of version control}
+
+\begin{frame}{Life without version control}
+You're writing a paper and you have a regression.
+\begin{itemize}
+\item Advisor 1 tells you to include a certain covariate. You put in lots of work to get the data, clean it, merge it, change the specification, and re-run.
+\item Advisor 2 tells you that covariate is dumb. You remove it.
+\item Then Advisor 2 changes their mind.
+\end{itemize}
+What do you do?
+\end{frame}
+
+\begin{frame}{Life without version control}
+Do you keep every specification you ever tried?
+\begin{itemize}
+\item The code too, or just the outputs?
+\item What if you discover a coding error that affects many of your specifications?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Version control 0.1: putting dates on code}
+\end{frame}
+
+\begin{frame}{Version control 0.2: Dropbox}
+A Post It note spotted on a grad student's desk:
+\begin{quote}
+	Don't forget! At 10:18 am on November 17th, we changed the specification to add new variable.
+\end{quote}
+Don't live this way.
+\end{frame}
+
+\begin{frame}{Useful principles}
+\begin{enumerate}
+\item You're not going to remember why you did that.
+\item Your coauthor can't read your mind.
+\item Conserve cognitive effort.
+\item ``Not one piece of commercial software you have on your PC, your phone, your tablet,
+your car, or any other modern computing device was written with the `date and initial' method.'' (Gentzkow and Shapiro)
+\end{enumerate}
+
+\end{frame}
+
+\section{Using version control}
+
+\begin{frame}{What's Git?}
+\end{frame}
+
+\begin{frame}{What software can I use?}
+\begin{itemize}
+\item GitKraken
+\item GitHub Desktop
+\item command line, old-school
+\item RStudio (for R projects)
+\end{itemize}
+
+\end{frame}
+
+\section{Using Git by yourself}
+
+\begin{frame}{Commits: logging your changes}
+\end{frame}
+
+\begin{frame}{Branches: trying things out}
+\end{frame}
+
+\begin{frame}{Local vs. remote repo}
+Git doesn't require a remote repository.
+\begin{itemize}
+\item If you have restrictions on your code (for example, if you work with confidential health data) you can use Git entirely locally
+\item But a remote repository helps you keep things backed up seamlessly
+\end{itemize}
+
+\end{frame}
+
+\section{Using Git for collaboration}
+
+\begin{frame}{Repos}
+\end{frame}
+
+\begin{frame}{What's GitHub?}
+\end{frame}
+
+\section*{Conclusion}
+
+
+\end{document}
