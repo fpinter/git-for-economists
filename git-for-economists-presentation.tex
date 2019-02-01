@@ -41,16 +41,38 @@
 
 \section*{Introduction}
 
-\begin{frame}{Introduction}
+\begin{frame}{What is version control?}
+Version control is a way to keep track of changes to code, text, and documents. And data and outputs.
+\begin{itemize}
+\item It gives you an organized revision history
+\item It lets you experiment without fear
+\item It lets you go back and forth between many different versions of the same file, and see a list of the differences
+\item It makes (the technical aspects of) collaboration a breeze
+\item It lets you and your collaborators work on different versions and then merge them
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What is Git?}
+\begin{itemize}
+\item Git is a program that does version control
+\item It is the most popular version control program in software development
+\item It is easy to set up and get started
+\item There are many programs that add intuitive interfaces on top of Git
+\item Git integrates seamlessly with online collaboration tools like GitHub and GitLab
+\end{itemize}
 \end{frame}
 
 \section{The importance of version control}
 
+\begin{frame}{Using it yourself}
+Git isn't just useful for collaboration. It also helps you keep your own projects organized.
+\end{frame}
+
 \begin{frame}{Life without version control}
 You're writing a paper and you have a regression.
 \begin{itemize}
-\item Advisor 1 tells you to include a certain covariate. You put in lots of work to get the data, clean it, merge it, change the specification, and re-run.
-\item Advisor 2 tells you that covariate is dumb. You remove it.
+\item Advisor 1 tells you to include a certain variable. You put in lots of work to get the data, clean it, merge it, change the specification, and re-run.
+\item Advisor 2 tells you that variable is dumb. You remove it.
 \item Then Advisor 2 changes their mind.
 \end{itemize}
 What do you do?
@@ -59,13 +81,35 @@ What do you do?
 \begin{frame}{Life without version control}
 Do you keep every specification you ever tried?
 \begin{itemize}
-\item The code too, or just the outputs?
+\item The code and the outputs?
 \item What if you discover a coding error that affects many of your specifications?
+\item How do you organize all the files?
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Version control 0.1: putting dates in things}
+Does this look familiar?
+\texttt{run\_regs\_11\_17\_2018\_v4\_final\_final.do}
 
-\begin{frame}{Version control 0.1: putting dates on code}
+\vspace{1in}
+``Not one piece of commercial software you have on your PC, your phone, your tablet,
+your car, or any other modern computing device was written with the `date and initial' method.'' (Gentzkow and Shapiro)
+\end{frame}
+
+\begin{frame}{Version control 0.2: Dropbox}
+\begin{itemize}
+\item Dropbox keeps a crude version history.
+\begin{itemize}
+\item But there are no labels or comments, and it's not easy to see the differences between files.
+\item So if you want to dig up ``the version where I had that other variable'' you have to manually look through a bunch of versions.
+\item And good luck if you changed two scripts, not just one.
+\end{itemize}
+\item Dropbox lets you and your collaborators stay in sync.
+\begin{itemize}
+\item But what if you and your coauthor try to change the same script at the same time?
+\item What if you are trying one change and, at the same time, your coauthor is trying a different change?
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Version control 0.2: Dropbox}
@@ -80,23 +124,21 @@ Don't live this way.
 \begin{enumerate}
 \item You're not going to remember why you did that.
 \item Your coauthor can't read your mind.
-\item Conserve cognitive effort.
-\item ``Not one piece of commercial software you have on your PC, your phone, your tablet,
-your car, or any other modern computing device was written with the `date and initial' method.'' (Gentzkow and Shapiro)
 \end{enumerate}
 
 \end{frame}
 
 \section{Using version control}
 
-\begin{frame}{What's Git?}
+\begin{frame}{Why use Git?}
+Git is the dominant version control system today. There are others, but they're generally more work with no benefit.
 \end{frame}
 
 \begin{frame}{What software can I use?}
 \begin{itemize}
 \item GitKraken
 \item GitHub Desktop
-\item command line, old-school
+\item Command line (powerful)
 \item RStudio (for R projects)
 \end{itemize}
 
@@ -104,17 +146,64 @@ your car, or any other modern computing device was written with the `date and in
 
 \section{Using Git by yourself}
 
+\begin{frame}{Getting started}
+\end{frame}
+
 \begin{frame}{Commits: logging your changes}
 \end{frame}
+
+\begin{frame}{What should I include?}
+\begin{enumerate}
+\item At a minimum:
+\begin{itemize}
+\item Code (\texttt{.do}, \texttt{.R}, \texttt{.m}, \texttt{.jl}, and so on)
+\item Text files (\texttt{.txt})
+\item \LaTeX documents (\texttt{.tex})
+\end{itemize}
+\item I also recommend:
+\begin{itemize}
+\item Raw \texttt{.csv} datasets, if small (\textless 10 MB)
+\end{itemize}
+\item These are binary files, so you can't see differences between versions. I recommend including them anyway.
+\begin{itemize}
+\item PDF files
+\item Word, Excel, PowerPoint files
+\end{itemize}
+\item Some people also include all datasets.
+\begin{itemize}
+\item Note that GitHub doesn't allow files larger than 100 MB, or projects with total size larger than 1 GB.
+\end{itemize}
+\end{enumerate}
+
+For datasets, look into \href{https://git-lfs.github.com/}{Git Large File Storage}.
+\end{frame}
+
+\begin{frame}{Ignoring the junk}
+In order to avoid driving your coauthors crazy, you \textbf{must} tell Git to ignore the junk files:
+\begin{itemize}
+\item Junk created by \LaTeX: \texttt{*.synctex.gz}, \texttt{*.out}, \texttt{*.log}, etc
+\item Junk created by R: \texttt{.RData}
+\item Junk created by Python: \texttt{*.pyc}
+\end{itemize}
+The way to do this is with a file called \texttt{.gitignore}
+\end{frame}
+
+
+\begin{frame}{Comparing commits: diff}
+\end{frame}
+
 
 \begin{frame}{Branches: trying things out}
 \end{frame}
 
-\begin{frame}{Local vs. remote repo}
-Git doesn't require a remote repository.
+\begin{frame}{Keeping it local vs. using a remote repository}
+Git doesn't require a remote repository. You can run it 100\% on your computer, with no connection to an outside server.
 \begin{itemize}
-\item If you have restrictions on your code (for example, if you work with confidential health data) you can use Git entirely locally
-\item But a remote repository helps you keep things backed up seamlessly
+\item This is useful if you have restrictions on your code (for example, you work with confidential health data)
+\begin{itemize}
+\item Ask me if you have questions about using Git this way on the NBER cluster
+\end{itemize}
+\item But a remote repository helps you keep things backed up seamlessly, and lets you collaborate
 \end{itemize}
 
 \end{frame}
@@ -127,7 +216,31 @@ Git doesn't require a remote repository.
 \begin{frame}{What's GitHub?}
 \end{frame}
 
+\begin{frame}{Brief detour: hosting services}
+\begin{itemize}
+\item With a free GitHub account, you can create
+\begin{itemize}
+\item as many private repositories as you want
+\item but each private repository can only have three collaborators.
+\item You can also create as many public repositories as you want (and each can have as many collaborators as you want).
+\end{itemize}
+\item GitLab is a competing service. With a free GitLab account, you can create as many private repositories as you want, with as many collaborators as you want.
+\item It's easy to use GitHub for one project, and GitLab for another
+\end{itemize}
+
+\end{frame}
+
+
 \section*{Conclusion}
 
+\begin{frame}{Conclusion}
+\end{frame}
+
+\begin{frame}{Further reading}
+\begin{itemize}
+\item Matt Gentzkow and Jesse Shapiro, ``Code and Data for the Social Sciences: A Practitioner’s Guide'' (\url{https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf}). See Chapter 3 for more on why you should use version control.
+\item Jes\'us Fern\'andez-Villaverde's notes on high-performance computing (see also his class Computational Economics). Chapter 5 (\url{https://www.sas.upenn.edu/~jesusfv/Chapter_HPC_5_Git.pdf}) is an extended Git tutorial using the command line interface.
+\end{itemize}
+\end{frame}
 
 \end{document}
