@@ -146,10 +146,38 @@ Git is the dominant version control system today. There are others, but they're 
 \item You do work in your \textbf{working directory}.
 \item Then you add it to your \textbf{staging area}.
 \item Once you've staged all your changes for one discrete task, \textbf{commit}.
+\item If you have a remote repo, \textbf{push} your commit to the remote repo.
 \end{enumerate}
 \end{frame}
 
 \begin{frame}{Commits: saving a snapshot}
+What is ``one discrete task''? A collection of changes, across multiple files, that does \textit{one thing}. Examples:
+\begin{itemize}
+\item Change the formatting of a variable from string to numeric, and treat it properly across multiple scripts
+\item Change your regression specification in code, in the output, and in your paper and supporting documentation
+\item Add a new function, and tests for that function
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Run tests when you commit}
+Your code should run properly when you commit.
+\begin{itemize}
+\item No runtime errors
+\begin{itemize}
+\item Test this by running all code that changed, and everything that depends on it
+\item Makefiles automate this process
+\item Only skip if you are sure you didn't change anything important
+\end{itemize}
+\item No compilation errors (including \LaTeX)
+\item Tests should pass
+\item Output should be consistent with what you've written
+\begin{itemize}
+\item Don't report a negative regression coefficient, and write in words that the estimated coefficient is positive
+\end{itemize}
+\end{itemize}
+But it's better to have frequent commits (that might have small mistakes) than to have giant, infrequent commits.
+
+{\tiny You can also do partial commits (\texttt{git add --patch}) which are somewhat advanced.}
 \end{frame}
 
 \begin{frame}{What should I include?}
@@ -158,7 +186,7 @@ Git is the dominant version control system today. There are others, but they're 
 \begin{itemize}
 \item Code (\texttt{.do}, \texttt{.R}, \texttt{.m}, \texttt{.jl}, and so on)
 \item Text files (\texttt{.txt})
-\item \LaTeX documents (\texttt{.tex})
+\item \LaTeX \, documents (\texttt{.tex})
 \end{itemize}
 \item I also recommend:
 \begin{itemize}
@@ -178,14 +206,14 @@ Git is the dominant version control system today. There are others, but they're 
 For datasets, look into \href{https://git-lfs.github.com/}{Git Large File Storage}.
 \end{frame}
 
-\begin{frame}{Ignoring the junk}
+\begin{frame}{What should I exclude?}
 In order to avoid driving your coauthors crazy, you \textbf{must} tell Git to ignore the junk files:
 \begin{itemize}
 \item Junk created by \LaTeX: \texttt{*.synctex.gz}, \texttt{*.out}, \texttt{*.log}, etc
 \item Junk created by R: \texttt{.RData}
 \item Junk created by Python: \texttt{*.pyc}
 \end{itemize}
-The way to do this is with a file called \texttt{.gitignore}
+Exclude files using a file called \texttt{.gitignore}
 \end{frame}
 
 
