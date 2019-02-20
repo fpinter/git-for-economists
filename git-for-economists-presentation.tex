@@ -147,7 +147,7 @@ Git is the dominant version control system today. There are others, but they're 
 \begin{enumerate}
 \item You do work in your \textbf{working directory}.
 \item Then you add it to your \textbf{staging area}.
-\item Once you've staged all your changes for one discrete task, \textbf{commit}.
+\item Once you've staged all your changes for one discrete task, \textbf{commit} a snapshot of the staging area.
 \item If you have a remote repository, \textbf{push} your commit to the remote repository.
 \end{enumerate}
 
@@ -252,6 +252,21 @@ You can also go back and see past changes.
 \end{frame}
 
 \begin{frame}{Branches: trying things out}
+\href{https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell}{Branches} are the most powerful part of Git
+\begin{itemize}
+\item By default, all the work you do goes into the ``master'' branch
+\item Want to experiment? Start a new branch
+\item You can switch between branches, and make commits to either branch
+\begin{itemize}
+\item There is a catch: if you don't check in your intermediate/final datasets, you may need to re-make them when you switch
+\end{itemize}
+\item If your experiment works out, commit and merge back into the master branch
+\begin{itemize}
+\item If there are conflicts, Git will prompt you to resolve them
+\end{itemize}
+\item If your experiment doesn't work out, delete the new branch painlessly
+\item The best way to learn how to use branches: practice
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Keeping it local vs. using a remote repository}
@@ -262,6 +277,7 @@ Git doesn't require a remote repository. You can run it 100\% on your computer, 
 \item Ask me if you have questions about using Git this way on the NBER cluster
 \end{itemize}
 \item But a remote repository helps you keep things backed up seamlessly, and lets you collaborate with others
+\item You can push all your branches to the remote repository, or only some of them
 \end{itemize}
 
 \end{frame}
