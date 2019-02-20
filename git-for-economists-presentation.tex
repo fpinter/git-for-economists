@@ -125,19 +125,17 @@ Don't live this way.
 Git is the dominant version control system today. There are others, but they're generally more work with no benefit.
 \end{frame}
 
-\begin{frame}{What software can I use?}
+\begin{frame}{Getting started}
+\begin{enumerate}
+\item \href{https://git-scm.com/book/en/v2/Getting-Started-Installing-Git}{Install Git} (Linux, Mac, Windows)
+\item Git comes with a command line interface (powerful!). You might want to add a graphical interface to make things easier:
 \begin{itemize}
 \item \href{https://www.gitkraken.com/}{GitKraken}
 \item \href{https://desktop.github.com/}{GitHub Desktop}
-\item Command line (powerful!)
 \item \href{https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN}{RStudio (for R projects)}
 \end{itemize}
+\end{enumerate}
 
-\end{frame}
-
-\section{Using Git by yourself}
-
-\begin{frame}{Getting started}
 \end{frame}
 
 \begin{frame}{The Git model}
@@ -146,9 +144,12 @@ Git is the dominant version control system today. There are others, but they're 
 \item You do work in your \textbf{working directory}.
 \item Then you add it to your \textbf{staging area}.
 \item Once you've staged all your changes for one discrete task, \textbf{commit}.
-\item If you have a remote repo, \textbf{push} your commit to the remote repo.
+\item If you have a remote repository, \textbf{push} your commit to the remote repository.
 \end{enumerate}
+
+\includegraphics[width=\textwidth]{git-model.pdf}
 \end{frame}
+
 
 \begin{frame}{Commits: saving a snapshot}
 What is ``one discrete task''? A collection of changes, across multiple files, that does \textit{one thing}. Examples:
@@ -157,9 +158,19 @@ What is ``one discrete task''? A collection of changes, across multiple files, t
 \item Change your regression specification in code, in the output, and in your paper and supporting documentation
 \item Add a new function, and tests for that function
 \end{itemize}
+These form one \textbf{commit}, which you annotate with a detailed \textbf{commit message}. Examples:
+\begin{itemize}
+\item ``Change the formatting of start date variable from string to Stata date format''
+\item ``Add year dummies to regression specification''
+\end{itemize}
+The more detail, the more your future self will thank you.
 \end{frame}
 
-\begin{frame}{Run tests when you commit}
+\begin{frame}{Commits}
+\includegraphics[width=200px]{screenshots/committing.png}
+\end{frame}
+
+\begin{frame}{Run tests before you commit}
 Your code should run properly when you commit.
 \begin{itemize}
 \item No runtime errors
@@ -214,8 +225,9 @@ In order to avoid driving your coauthors crazy, you \textbf{must} tell Git to ig
 \item Junk created by Python: \texttt{*.pyc}
 \end{itemize}
 Exclude files using a file called \texttt{.gitignore}
-\end{frame}
 
+Best practice: use \texttt{.gitignore} to explicitly exclude \textit{everything} that you don't want to include.
+\end{frame}
 
 \begin{frame}{Comparing commits: diff}
 \end{frame}
@@ -231,7 +243,7 @@ Git doesn't require a remote repository. You can run it 100\% on your computer, 
 \begin{itemize}
 \item Ask me if you have questions about using Git this way on the NBER cluster
 \end{itemize}
-\item But a remote repository helps you keep things backed up seamlessly, and lets you collaborate
+\item But a remote repository helps you keep things backed up seamlessly, and lets you collaborate with others
 \end{itemize}
 
 \end{frame}
