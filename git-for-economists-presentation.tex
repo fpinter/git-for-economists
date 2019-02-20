@@ -16,6 +16,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{verbatim}
 
 \title[Git for Economists]{Git and GitHub: A Guide for Economists}
 \author{Frank Pinter}
@@ -217,16 +218,23 @@ But it's better to have frequent commits (that might have small mistakes) than t
 For datasets, look into \href{https://git-lfs.github.com/}{Git Large File Storage}.
 \end{frame}
 
-\begin{frame}{What should I exclude?}
-In order to avoid driving your coauthors crazy, you \textbf{must} tell Git to ignore the junk files:
-\begin{itemize}
-\item Junk created by \LaTeX: \texttt{*.synctex.gz}, \texttt{*.out}, \texttt{*.log}, etc
-\item Junk created by R: \texttt{.RData}
-\item Junk created by Python: \texttt{*.pyc}
-\end{itemize}
-Exclude files using a file called \texttt{.gitignore}
+\begin{frame}[fragile]{What should I exclude?}
+In order to avoid driving your coauthors crazy, you \textbf{must} tell Git to ignore the junk files using a file called \textit{.gitignore}. It looks like this:
 
-Best practice: use \texttt{.gitignore} to explicitly exclude \textit{everything} that you don't want to include.
+\begin{verbatim}
+# Junk created by LaTeX
+*.synctex.gz
+*.out
+*.log
+# Junk created by R
+.RData
+# Junk created by Python
+*.pyc
+\end{verbatim}
+
+Best practice: use \textit{.gitignore} to explicitly exclude \textit{everything} that you don't want to include, and commit \textit{.gitignore} like any other regular file.
+
+GitHub maintains a \href{https://help.github.com/articles/ignoring-files/}{list of standard \textit{.gitignore}} files for many common languages.
 \end{frame}
 
 \begin{frame}{Comparing commits: diff}
