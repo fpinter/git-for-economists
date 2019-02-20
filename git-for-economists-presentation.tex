@@ -285,21 +285,28 @@ Git doesn't require a remote repository. You can run it 100\% on your computer, 
 
 \section{Using Git for collaboration}
 
-\begin{frame}{Repos}
-\end{frame}
-
-\begin{frame}{What's GitHub?}
-\end{frame}
-
-\begin{frame}{Brief detour: hosting services}
+\begin{frame}{Remote repository}
+The remote repository is on a server, and holds a record of your commits and branches
 \begin{itemize}
+\item You \textbf{push} to the remote repository to save all your commits
+\item You \textbf{pull} from the remote repository to load all new commits
+\item Always commit before pushing or pulling
+\item If what you're doing is an experiment, make a new branch to avoid any trouble for your coauthor
+\item As with branches, if there are conflicts between your commits and your coauthor's commits, Git will ask you to resolve them
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Hosting services}
+\begin{itemize}
+\item \href{https://github.com/}{GitHub} is the most popular hosting service for remote repositories
 \item With a free GitHub account, you can create
 \begin{itemize}
 \item as many private repositories as you want
 \item but each private repository can only have three collaborators.
-\item You can also create as many public repositories as you want (and each can have as many collaborators as you want).
 \end{itemize}
-\item GitLab is a competing service. With a free GitLab account, you can create as many private repositories as you want, with as many collaborators as you want.
+\item You can always create as many public repositories as you want (and each can have as many collaborators as you want). This is the best way to publish your code for the world to see.
+\item \href{https://about.gitlab.com/}{GitLab} is a competing service. With a free GitLab account, you can create as many private repositories as you want, with as many collaborators as you want.
 \item It's easy to use GitHub for one project, and GitLab for another
 \end{itemize}
 
@@ -316,6 +323,7 @@ Git doesn't require a remote repository. You can run it 100\% on your computer, 
 \item Matt Gentzkow and Jesse Shapiro, ``Code and Data for the Social Sciences: A Practitioner’s Guide'' (\url{https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf}). See Chapter 3 for more on why you should use version control.
 \item Jes\'us Fern\'andez-Villaverde's notes on high-performance computing (see also his class Computational Economics). Chapter 5 (\url{https://www.sas.upenn.edu/~jesusfv/Chapter_HPC_5_Git.pdf}) is an extended Git tutorial using the command line interface.
 \item Hadley Wickham's book on writing R packages. The chapter on Git and GitHub (\url{http://r-pkgs.had.co.nz/git.html}) is well-written and not specific to R.
+\item If you want to drill down on workflow, see the tutorial ``Understanding the GitHub flow'' (\url{https://guides.github.com/introduction/flow/})
 \end{itemize}
 \end{frame}
 
