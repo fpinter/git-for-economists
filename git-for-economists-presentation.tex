@@ -191,8 +191,6 @@ Your code should run properly when you commit.
 \end{itemize}
 \end{itemize}
 But it's better to have frequent commits (that might have small mistakes) than to have giant, infrequent commits.
-
-{\tiny You can also do partial commits (\texttt{git add --patch}) which are somewhat advanced.}
 \end{frame}
 
 \begin{frame}{What should I include?}
@@ -264,9 +262,9 @@ You can also go back and see past changes.
 \begin{itemize}
 \item If there are conflicts between the commits you've made on the two branches, Git will ask you to resolve them
 \item This is easiest with a graphical interface like \href{https://support.gitkraken.com/working-with-repositories/branching-and-merging/}{GitKraken}
+\item This can't be done with binary files (PDF, images, Word, Excel). You'll just have to decide which one to keep.
 \end{itemize}
 \item If your experiment doesn't work out, delete the new branch painlessly
-\item The best way to learn how to use branches: practice
 \end{itemize}
 \end{frame}
 
@@ -294,7 +292,6 @@ The remote repository is on a server, and holds a record of your commits and bra
 \item If what you're doing is an experiment, make a new branch to avoid any trouble for your coauthor
 \item As with branches, if there are conflicts between your commits and your coauthor's commits, Git will ask you to resolve them
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Hosting services}
@@ -309,13 +306,19 @@ The remote repository is on a server, and holds a record of your commits and bra
 \item \href{https://about.gitlab.com/}{GitLab} is a competing service. With a free GitLab account, you can create as many private repositories as you want, with as many collaborators as you want.
 \item It's easy to use GitHub for one project, and GitLab for another
 \end{itemize}
-
 \end{frame}
-
 
 \section*{Conclusion}
 
 \begin{frame}{Conclusion}
+\begin{itemize}
+\item At its simplest, Git is a way to keep track of the history of your work, and easily go back to past versions
+\item But it can be so much more!
+\item Experiment without fear
+\item Collaborate with far less back-and-forth
+\item The best way to learn Git: use it!
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Further reading}
