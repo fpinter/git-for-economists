@@ -132,6 +132,9 @@ Git is the dominant version control system today. There are others, but they're 
 \item Git comes with a command line interface (powerful!). You might want to add a graphical interface to make things easier:
 \begin{itemize}
 \item \href{https://www.gitkraken.com/}{GitKraken}
+\begin{itemize}
+\item The screenshots in this presentation are from GitKraken
+\end{itemize}
 \item \href{https://desktop.github.com/}{GitHub Desktop}
 \item \href{https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN}{RStudio (for R projects)}
 \end{itemize}
@@ -237,9 +240,16 @@ Best practice: use \textit{.gitignore} to explicitly exclude \textit{everything}
 GitHub maintains a \href{https://help.github.com/articles/ignoring-files/}{list of standard \textit{.gitignore}} files for many common languages.
 \end{frame}
 
-\begin{frame}{Comparing commits: diff}
+\begin{frame}{Viewing changes: diff}
+Git easily lets you see what changed in \LaTeX, code (not images/PDFs/most datasets). Review this when staging!
+\includegraphics[width=\textwidth]{screenshots/diff.png}
+{\small (This is the GitKraken interface, but it looks similar in any other interface)}
 \end{frame}
 
+\begin{frame}{Viewing changes: diff}
+You can also go back and see past changes.
+\includegraphics[width=\textwidth]{screenshots/history-diff.png}
+\end{frame}
 
 \begin{frame}{Branches: trying things out}
 \end{frame}
