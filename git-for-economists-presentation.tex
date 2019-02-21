@@ -66,26 +66,17 @@ Version control is a way to keep track of changes to code, text, and documents. 
 
 \section{The importance of version control}
 
-\begin{frame}{Using it yourself}
-Git isn't just useful for collaboration. It also helps you keep your own projects organized.
-\end{frame}
-
 \begin{frame}{Life without version control}
-You're writing a paper and you have a regression.
-\begin{itemize}
-\item Advisor 1 tells you to include a certain variable. You put in lots of work to get the data, clean it, merge it, change the specification, and re-run.
-\item Advisor 2 tells you that variable is dumb. You remove it.
-\item Then Advisor 2 changes their mind.
-\end{itemize}
-What do you do?
-\end{frame}
-
-\begin{frame}{Life without version control}
-Do you keep every specification you ever tried?
+Do you keep every variant of every program you ever wrote on a project?
 \begin{itemize}
 \item The code and the outputs?
-\item What if you discover a coding error that affects many of your specifications?
+\item What if you discover a coding error? Which versions are right?
 \item How do you organize all the files?
+\end{itemize}
+Or, worse, do you only keep the latest thing you tried?
+\begin{itemize}
+\item What if you introduce a new mistake?
+\item What if you're experimenting and you accidentally keep the experiment in?
 \end{itemize}
 \end{frame}
 
@@ -146,13 +137,14 @@ Git is the dominant version control system today. There are others, but they're 
 If you're starting your own project in GitKraken:
 \begin{itemize}
 \item Open GitKraken and select  ``Start a local project'' or ``Start a hosted project'' (will get into this later)
-\item Choose the name and the directory
+\item Choose the name and the local directory to use
 \item Start working in the directory
 \end{itemize}
 If your coauthor started a project, added you to it online, and you're putting it on your own computer:
 \begin{itemize}
 \item Open GitKraken and go to File \textrightarrow Clone
 \item Select the service (GitHub/GitLab/Bitbucket), log in if necessary, and select the project from the list
+\item Choose the local directory to save it to
 \end{itemize}
 \end{frame}
 
@@ -332,6 +324,7 @@ To collaborate, you'll need a service to host your remote repository.
 \item Most services have restrictions on private repositories
 \item It's easy to use one service for one project, and another service for another project
 \item All these services have nice web interfaces for managing your project
+\item Some also have integrated task management systems
 \end{itemize}
 \end{frame}
 
