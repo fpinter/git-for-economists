@@ -18,7 +18,7 @@
 \usepackage{hyperref}
 \usepackage{verbatim}
 
-\title[Git for Economists]{Git and GitHub: A Guide for Economists}
+\title[Git for Economists]{Git: A Guide for Economists}
 \author{Frank Pinter}
 \date{22 February 2019}
 
@@ -184,7 +184,7 @@ Your code should run properly when you commit.
 \item Only skip if you are sure you didn't change anything important
 \end{itemize}
 \item No compilation errors (including \LaTeX)
-\item Tests should pass
+\item All your tests should pass
 \item Output should be consistent with what you've written
 \begin{itemize}
 \item Don't report a negative regression coefficient, and write in words that the estimated coefficient is positive
@@ -295,17 +295,18 @@ The remote repository is on a server, and holds a record of your commits and bra
 \end{frame}
 
 \begin{frame}{Hosting services}
+To collaborate, you'll need a service to host your remote repository.
 \begin{itemize}
-\item \href{https://github.com/}{GitHub} is the most popular hosting service for remote repositories
-\item With a free GitHub account, you can create
+\item Here are a few:
 \begin{itemize}
-\item as many private repositories as you want
-\item but each private repository can only have three collaborators.
+\item \href{https://github.com/}{GitHub} (most popular)
+\item \href{https://gitlab.com/}{GitLab}
+\item \href{https://bitbucket.org/}{Bitbucket}
 \end{itemize}
-\item You can always create as many public repositories as you want (and each can have as many collaborators as you want). This is the best way to publish your code for the world to see.
-\item \href{https://about.gitlab.com/}{GitLab} is a competing service. With a free GitLab account, you can create as many private repositories as you want, with as many collaborators as you want.
-\item It's easy to use GitHub for one project, and GitLab for another
-\item Both have nice web interfaces for managing your project
+\item You can choose \textit{public} (published for the world to see) or \textit{private} (best for research in progress)
+\item Most services have restrictions on private repositories
+\item It's easy to use one service for one project, and another service for another project
+\item All these services have nice web interfaces for managing your project
 \end{itemize}
 \end{frame}
 
