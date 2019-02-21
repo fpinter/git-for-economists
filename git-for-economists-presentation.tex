@@ -17,6 +17,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{verbatim}
+\usepackage{textcomp}
 
 \title[Git for Economists]{Git: A Guide for Economists}
 \author{Frank Pinter}
@@ -120,77 +121,49 @@ A Post It note spotted on a grad student's desk:
 Don't live this way.
 \end{frame}
 
-\section{Using version control}
+\section{Getting started on a project}
 
 \begin{frame}{Why use Git?}
 Git is the dominant version control system today. There are others, but they're generally more work with no benefit.
 \end{frame}
 
-\begin{frame}{Getting started}
+\begin{frame}{Getting started with Git}
 \begin{enumerate}
 \item \href{https://git-scm.com/book/en/v2/Getting-Started-Installing-Git}{Install Git} (Linux, Mac, Windows)
 \item Git comes with a command line interface (powerful!). You might want to add a graphical interface to make things easier:
 \begin{itemize}
 \item \href{https://www.gitkraken.com/}{GitKraken}
 \begin{itemize}
-\item The screenshots in this presentation are from GitKraken
+\item The examples in this presentation use GitKraken
 \end{itemize}
 \item \href{https://desktop.github.com/}{GitHub Desktop}
 \item \href{https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN}{RStudio (for R projects)}
 \end{itemize}
 \end{enumerate}
-
 \end{frame}
 
-\begin{frame}{The Git model}
-
-\begin{enumerate}
-\item You do work in your \textbf{working directory}.
-\item Then you add it to your \textbf{staging area}.
-\item Once you've staged all your changes for one discrete task, \textbf{commit} a snapshot of the staging area.
-\item If you have a remote repository, \textbf{push} your commit to the remote repository.
-\end{enumerate}
-
-\includegraphics[width=\textwidth]{git-model.pdf}
+\begin{frame}{Getting started with your project}
+If you're starting your own project in GitKraken:
+\begin{itemize}
+\item Open GitKraken and select  ``Start a local project'' or ``Start a hosted project'' (will get into this later)
+\item Choose the name and the directory
+\item Start working in the directory
+\end{itemize}
+If your coauthor started a project, added you to it online, and you're putting it on your own computer:
+\begin{itemize}
+\item Open GitKraken and go to File \textrightarrow Clone
+\item Select the service (GitHub/GitLab/Bitbucket), log in if necessary, and select the project from the list
+\end{itemize}
 \end{frame}
 
-
-\begin{frame}{Commits: saving a snapshot}
-What is ``one discrete task''? A collection of changes, across multiple files, that does \textit{one thing}. Examples:
+\begin{frame}{What actually is the Git repository?}
 \begin{itemize}
-\item Change the formatting of a variable from string to numeric, and treat it properly across multiple scripts
-\item Change your regression specification in code, in the output, and in your paper and supporting documentation
-\item Add a new function, and tests for that function
+\item The Git local repository is associated with a particular directory
+\item Open the directory in your Git interface to see your options
+\item Git stores all its workings in that directory in a hidden subfolder called ``.git''
+\item Corollary: \href{https://stackoverflow.com/questions/19305033/why-is-putting-git-repositories-inside-of-a-dropbox-folder-not-recommended}{don't use Git inside a Dropbox shared folder!}
+\item Sharing is what remote repositories and hosting services are for (more on this later)
 \end{itemize}
-These form one \textbf{commit}, which you annotate with a detailed \textbf{commit message}. Examples:
-\begin{itemize}
-\item ``Change the formatting of start date variable from string to Stata date format''
-\item ``Add year dummies to regression specification''
-\end{itemize}
-The more detail, the more your future self will thank you.
-\end{frame}
-
-\begin{frame}{Commits}
-\includegraphics[width=200px]{screenshots/committing.png}
-\end{frame}
-
-\begin{frame}{Run tests before you commit}
-Your code should run properly when you commit.
-\begin{itemize}
-\item No runtime errors
-\begin{itemize}
-\item Test this by running all code that changed, and everything that depends on it
-\item Makefiles automate this process
-\item Only skip if you are sure you didn't change anything important
-\end{itemize}
-\item No compilation errors (including \LaTeX)
-\item All your tests should pass
-\item Output should be consistent with what you've written
-\begin{itemize}
-\item Don't report a negative regression coefficient, and write in words that the estimated coefficient is positive
-\end{itemize}
-\end{itemize}
-But it's better to have frequent commits (that might have small mistakes) than to have giant, infrequent commits.
 \end{frame}
 
 \begin{frame}{What should I include?}
@@ -238,14 +211,66 @@ Best practice: use \textit{.gitignore} to explicitly exclude \textit{everything}
 GitHub maintains a \href{https://help.github.com/articles/ignoring-files/}{list of standard \textit{.gitignore}} files for many common languages.
 \end{frame}
 
-\begin{frame}{Viewing changes: diff}
+\section{Using Git}
+
+\begin{frame}{The Git model}
+
+\begin{enumerate}
+\item You do work in your \textbf{working directory}.
+\item Then you add it to your \textbf{staging area}.
+\item Once you've staged all your changes for one discrete task, \textbf{commit} a snapshot of the staging area.
+\item If you have a remote repository, \textbf{push} your commit to the remote repository.
+\end{enumerate}
+
+\includegraphics[width=\textwidth]{git-model.pdf}
+\end{frame}
+
+\begin{frame}{Commits: saving a snapshot}
+What is ``one discrete task''? A collection of changes, across multiple files, that does \textit{one thing}. Examples:
+\begin{itemize}
+\item Change the formatting of a variable from string to numeric, and treat it properly across multiple scripts
+\item Change your regression specification in code, in the output, and in your paper and supporting documentation
+\item Add a new function, and tests for that function
+\end{itemize}
+These form one \textbf{commit}, which you annotate with a detailed \textbf{commit message}. Examples:
+\begin{itemize}
+\item ``Change the formatting of start date variable from string to Stata date format''
+\item ``Add year dummies to regression specification''
+\end{itemize}
+The more detail, the more your future self will thank you.
+\end{frame}
+
+\begin{frame}{Commits}
+\includegraphics[width=200px]{screenshots/committing.png}
+\end{frame}
+
+\begin{frame}{Run tests before you commit}
+Your code should run properly when you commit.
+\begin{itemize}
+\item No runtime errors
+\begin{itemize}
+\item Test this by running all code that changed, and everything that depends on it
+\item Makefiles automate this process
+\item Only skip if you are sure you didn't change anything important
+\end{itemize}
+\item No compilation errors (including \LaTeX)
+\item All your tests should pass
+\item Output should be consistent with what you've written
+\begin{itemize}
+\item Don't report a negative regression coefficient, and write in words that the estimated coefficient is positive
+\end{itemize}
+\end{itemize}
+But it's better to have frequent commits (that might have small mistakes) than to have giant, infrequent commits.
+\end{frame}
+
+\begin{frame}{Viewing changes when committing}
 Git easily lets you see what changed in \LaTeX, code (not images/PDFs/most datasets). Review this when staging!
 \includegraphics[width=\textwidth]{screenshots/diff.png}
 {\small (This is the GitKraken interface, but it looks similar in any other interface)}
 \end{frame}
 
-\begin{frame}{Viewing changes: diff}
-You can also go back and see past changes.
+\begin{frame}{Viewing history}
+GitKraken shows you a list of past changes. You can also see just the history of a particular file:
 \includegraphics[width=\textwidth]{screenshots/history-diff.png}
 \end{frame}
 
@@ -312,6 +337,15 @@ To collaborate, you'll need a service to host your remote repository.
 
 \section*{Conclusion}
 
+\begin{frame}{Learning the command line}
+\begin{itemize}
+\item There are many more features that are best accessed from the Git command line
+\item And in some situations (like the NBER servers) you don't have a choice
+\item A fantastic resource for learning the command line: Jes\'us Fern\'andez-Villaverde's notes on Git (\url{https://www.sas.upenn.edu/~jesusfv/Chapter_HPC_5_Git.pdf})
+\item See also his class!
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Conclusion}
 \begin{itemize}
 \item At its simplest, Git is a way to keep track of the history of your work, and easily go back to past versions
@@ -319,15 +353,6 @@ To collaborate, you'll need a service to host your remote repository.
 \item Experiment without fear
 \item Collaborate with far less back-and-forth
 \item The best way to learn Git: use it!
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Learning the command line}
-\begin{itemize}
-\item There are many more features that are best accessed from the Git command line
-\item And in some situations (like the NBER servers) you don't have a choice
-\item A fantastic resource for learning the command line: Jes\'us Fern\'andez-Villaverde's notes on Git (\url{https://www.sas.upenn.edu/~jesusfv/Chapter_HPC_5_Git.pdf})
-\item See also his class!
 \end{itemize}
 \end{frame}
 
