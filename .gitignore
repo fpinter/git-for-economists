@@ -10,3 +10,4 @@
 *.synctex.gz
 *.vrb
 *.el
+.DS_Store
